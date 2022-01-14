@@ -6,6 +6,7 @@ var AnswerA = document.querySelector("#answerA");
 var AnswerA = document.querySelector("#answerA");
 var AnswerA = document.querySelector("#answerA");
 var AnswerA = document.querySelector("#answerA");
+var timer = document.querySelector(".timer");
 var score = 0
 
 
