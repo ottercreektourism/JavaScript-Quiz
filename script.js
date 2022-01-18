@@ -104,13 +104,25 @@ function compare(){
   if(choice.innerText === questionData.correct){
     window.alert("Correct!");
     score++;
+    answerIsRight();
     // If the choice and correct answer do not match, deduct points from the score and display "incorrect"
     // Maybe deduct time instead of score here, not sure.
   }else{
     window.alert("Incorrect.");
     score--;
+    answerIsWrong();
     // display.timer-10
   }
+}
+
+function compare(correct){
+  if(questions[currentQuestion].correct == choice){
+    score++;
+    answerIsRight();
+  }else{
+    answerIsWrong();
+  }
+
 }
 
 // Simple timer function
@@ -127,6 +139,14 @@ function startTimer() {
       endGame();
     }
   }, 1000);
+}
+
+function answerIsRight() {
+
+}
+
+function answerIsWrong(){
+  
 }
 
 // Simple timer idea
@@ -167,7 +187,7 @@ function renderQuestion(){
 
   runningQuestionindex = 0;
   renderQuestion()
-  runningQuesstionIndex++
+  runningQuestionIndex++
 }
 
 function counterRender(){

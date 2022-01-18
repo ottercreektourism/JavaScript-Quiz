@@ -15,29 +15,27 @@
 
 <body>
     <h1>Javascript quiz</h1>
-    <button class="startBtn">Start Quiz</button>
+
     <div id="quiz">
+        <button class="startBtn">Start Quiz</button>
         <!-- style="display : none"> -->
         <!-- <div> -->
         <!-- This is the section where the question will go -->
         <h2 class="questionField">Question goes here</h2>
-    
 
-    <!-- trying out a way to make the time count down from 5 minutes -->
-    <div>Quiz ends in <span class="time" id="time">05:00</span> minutes!</div>
+        <!-- ids for each of the timer elements -->
+        <div id=timer></div>
+        <div id="backgroundTimeGauge"></div>
+        <div id="timeGauge"></div>
 
-    <!-- ids for each of the timer elements -->
-    <div id=timer></div>
-    <div id="counter">19</div>
-    <div id="backgroundTimeGauge"></div>
-    <div id="timeGauge"></div>
-    </div>
-    <!-- an id for the userChoices container, plus a class "choice" for all answers and a separate id for each answer -->
-    <div id="userChoices">
-        <button class="choice" id=answerA onclick="checkAnswer('A')">A</button>
-        <button class="choice" id=answerB onclick="checkAnswer('B')">B</button>
-        <button class="choice" id=answerC onclick="checkAnswer('C')">C</button>
-        <button class="choice" id=answerD onclick="checkAnswer('D')">D</button>
+        <!-- an id for the userChoices container, plus a class "choice" for all answers and a separate id for each answer -->
+        <div id="userChoices" class="hide">
+            <h1 id="question"></h1>
+            <button class="choice" id=answerA onclick="compare(event)">A</button>
+            <button class="choice" id=answerB onclick="compare(event)">B</button>
+            <button class="choice" id=answerC onclick="compare(event)">C</button>
+            <button class="choice" id=answerD onclick="compare(event)">D</button>
+        </div>
     </div>
     </div>
     <div id="progress">
@@ -68,8 +66,8 @@
         </ul>
 
     </div>
-
-    <script> src = "./assets/js/script.js"</script>
+    <!-- Sourcing the javascript doc -->
+    <script src="script2.js"></script>
 </body>
 
 </html>
