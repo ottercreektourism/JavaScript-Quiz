@@ -11,25 +11,55 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
+<!-- Start button and an ID for the whole quiz -->
+
 <body>
     <h1>Javascript quiz</h1>
     <button class="startBtn">Start Quiz</button>
-    <div>
+    <div id="quiz">
+        <!-- style="display : none"> -->
+        <!-- <div> -->
+        <!-- This is the section where the question will go -->
         <h2 class="questionField">Question goes here</h2>
-    </div>
-    <div>
-        <button id="answerA" class = userSelection>A</button>
-        <button id="answerB">B</button>
-        <button id="answerC">C</button>
-        <button id="answerD">D</button>
-    </div>
     
+
+    <!-- trying out a way to make the time count down from 5 minutes -->
+    <div>Quiz ends in <span class="time" id="time">05:00</span> minutes!</div>
+
+    <!-- ids for each of the timer elements -->
+    <div id=timer></div>
+    <div id="counter">19</div>
+    <div id="backgroundTimeGauge"></div>
+    <div id="timeGauge"></div>
+    </div>
+    <!-- an id for the userChoices container, plus a class "choice" for all answers and a separate id for each answer -->
+    <div id="userChoices">
+        <button class="choice" id=answerA onclick="checkAnswer('A')">A</button>
+        <button class="choice" id=answerB onclick="checkAnswer('B')">B</button>
+        <button class="choice" id=answerC onclick="checkAnswer('C')">C</button>
+        <button class="choice" id=answerD onclick="checkAnswer('D')">D</button>
+    </div>
+    </div>
+    <div id="progress">
+        <div class="prog"></div>
+        <div id="scoreContainer" style="display : none;"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- 
     <div class="card timer">
         <div class="timer-text">
             <div class="large-font timer-count">10</div>
             <h3>Seconds remaining:</h3>
         </div>
-    </div>
+    </div> -->
     <!-- Leaderboard -->
     <div class="leaderboard">
         <ul>
