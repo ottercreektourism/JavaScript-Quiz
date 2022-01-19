@@ -1,10 +1,8 @@
 // retrieving buttons and timers from the HTML
 var startBtn = document.getElementById("startBtn");
-var quiz = document.getElementById("quiz");
-var question = document.getElementById("question");
 var userChoices = document.getElementById("userChoices");
+var question = document.getElementById("question");
 var timer = document.getElementById("timer");
-
 
 var answerA = document.getElementById("answerA");
 var answerB = document.getElementById("answerB");
@@ -46,8 +44,6 @@ var questions = [
   ]
 
 
-// Add an event lister to the start button
-startBtn.addEventListener("click", start);
 
 // Function to start quiz
 function start() {
@@ -81,7 +77,6 @@ function questionDisplay(){
 }
 
 function compare(event){
-    console.log(event.target);
     if(event.target.innerText!== questions[runningQuestionIndex].correct){
         timerCount -=10;
     }
@@ -93,27 +88,12 @@ function compare(event){
     }
 }
 
-function renderLeaderboard(){
-    var userInitials = localStorage.getItem("userInitials");
-    
-
-}
 
 
 function saveScore(){
-
+    var entry = {initials:"MF",score:"97"}
 }
 
-saveScoreBtn.addEventListener("click", function (e){
-    e.preventDefault();
-    var userInitials = document.querySelector("userInitials").value;
-
-    if (userInitials === ""){
-        displaymessage("error", "Initials cannot be blank.");
-        localStorage.setItem("userInitials", userInitials);
-        renderLeaderboard();
-    }
-});
 
 
 
