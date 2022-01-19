@@ -2,50 +2,48 @@
 <html lang="en">
 
 <!-- Head contains viewport for media queries, title, and link to the css doc. -->
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Code Quiz</title>
+    <title>Javascript Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-<!-- Start button and an ID for the whole quiz -->
-
 <body>
-    <h1>Javascript quiz</h1>
+    <h1>Javascript Quiz</h1>
     <button id="startBtn" onclick="start()">Start Quiz</button>
-    <div id="userChoices" class="hide">
-        <!-- ids for the timer -->
-        <div id="timer">180</div>
+        
+    <div class="hide" id="quiz">        
+        <!-- ids for each of the timer elements -->
+        <div id="timer">60</div>
 
         <!-- an id for the userChoices container, plus a class "choice" for all answers and a separate id for each answer -->
-
-        <h2 id="question"></h2>
-        <button class="choice" id="answerA" onclick="compare(event)">A</button>
-        <button class="choice" id="answerB" onclick="compare(event)">B</button>
-        <button class="choice" id="answerC" onclick="compare(event)">C</button>
-        <button class="choice" id="answerD" onclick="compare(event)">D</button>
-
+        <div>
+            <h1 id="question"></h1>
+            <button id="answerA" onclick="compare(event)">A</button>
+            <button id="answerB" onclick="compare(event)">B</button>
+            <button id="answerC" onclick="compare(event)">C</button>
+            <button id="answerD" onclick="compare(event)">D</button>
+        </div>
     </div>
-    <!-- initials form for user -->
-    <div id="initialsForm" class="hide">
-        <h3>Time's up. Please record your initials in the space below.</h3>
-        <h3>Final Score:<span id="finalScore"></span></h3>
-        <label for="userInitials">Initials</label>
-        <input type="text" id="userInitials" placeholder="ABC">
-        <button id="saveScoreBtn" onclick="saveScore()">Save Score</button>
+    
+    <div id="scoreForm" class="hide">
+        <h2>All done!</h2>
+        <p>Your final score is <span id="endScore"></span>.</p>
+        <label for="initials">Enter Initials:</label>
+        <input type="text" id="initials">
+        <button onclick="submitscore()">Submit</button>
     </div>
-    <!-- Leaderboard -->
+
     <div id="leaderboard" class="hide">
         <h3>Highscores:</h3>
-        <ul id="initialsAndScores"></ul>
-        <button id="goBackBtn"onclick="goBack()">Go Back</button>
-        <button id="clearScoresBtn" onclick="clearScores()">Clear Highscores</button>
+        <ul id="scores"></ul>
+        <button id="restartBtn" onclick="restart()">Play Again</button>
+        <button id="clearBtn" onclick="clearscores()">Clear Highscores</button>
     </div>
-    <!-- Sourcing the javascript doc -->
-    <script src="script2.js"></script>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

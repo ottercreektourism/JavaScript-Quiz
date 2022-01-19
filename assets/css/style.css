@@ -17,3 +17,6 @@ body {
     color: mediumaquamarine;
     background-color: olive;
 }
+#scores{
+    list-style-type: none;
+}

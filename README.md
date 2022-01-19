@@ -27,4 +27,4 @@ Screenshots of the working site are provided here:
 
 
 Here is the link to the deployed site:
-https://ottercreektourism.github.io/code-quiz/
+https://ottercreektourism.github.io/JavaScript-Quiz/
