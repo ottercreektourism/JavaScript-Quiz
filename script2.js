@@ -1,5 +1,5 @@
 // retrieving buttons and timers from the HTML
-var startBtn = document.querySelector(".startBtn");
+var startBtn = document.getElementById("startBtn");
 var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
 var userChoices = document.getElementById("userChoices");
@@ -47,20 +47,14 @@ var questions = [
 
 
 // Add an event lister to the start button
-startBtn.addEventListener("click", start)
+startBtn.addEventListener("click", start);
 
 // Function to start quiz
 function start() {
-    countdown = setInterval(timerFunction, 1000)
-    // // When quiz starts, the timer function starts as well
-  
-    // // The current question will be referred to as questionData.
-
+    countdown = setInterval(timerFunction, 1000);
     startBtn.classList.add("hide");
     userChoices.classList.remove("hide");
     questionDisplay();
-    // Invokes the compare function
-    // compare();
   }
 
 function timerFunction(){
@@ -72,7 +66,7 @@ function timerFunction(){
 }
 
 function endQuiz(){
-    clearInterval(countdown)
+    clearInterval(countdown);
     userChoices.classList.add("hide");
     
 }
