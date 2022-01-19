@@ -74,6 +74,7 @@ function timerFunction(){
 function endQuiz(){
     clearInterval(countdown)
     userChoices.classList.add("hide");
+    
 }
 
 function questionDisplay(){
@@ -97,4 +98,32 @@ function compare(event){
     questionDisplay();
     }
 }
+
+function renderLeaderboard(){
+    var userInitials = localStorage.getItem("userInitials");
+    
+
+}
+
+
+function saveScore(){
+
+}
+
+saveScoreBtn.addEventListener("click", function (e){
+    e.preventDefault();
+    var userInitials = document.querySelector("userInitials").value;
+
+    if (userInitials === ""){
+        displaymessage("error", "Initials cannot be blank.");
+        localStorage.setItem("userInitials", userInitials);
+        renderLeaderboard();
+    }
+});
+
+
+
+
+
+
 
