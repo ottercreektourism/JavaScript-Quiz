@@ -8,7 +8,7 @@ body {
     display:none;
 }
 
-#startBtn {
+button {
     color: lightcoral;
     background: maroon;
 }

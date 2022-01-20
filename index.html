@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Head contains viewport for media queries, title, and link to the css doc. -->
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,15 +9,17 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
+<!-- Title and start button (onclass instead of event listener)-->
 <body>
     <h1>Javascript Quiz</h1>
     <button id="startBtn" onclick="start()">Start Quiz</button>
         
+    <!-- Class and id for the styling of this section -->
     <div class="hide" id="quiz">        
-        <!-- ids for each of the timer elements -->
+        <!-- id for the timer -->
         <div id="timer">60</div>
 
-        <!-- an id for the userChoices container, plus a class "choice" for all answers and a separate id for each answer -->
+        <!-- an id for the question container, plus a separate id for each answer choice -->
         <div>
             <h1 id="question"></h1>
             <button id="answerA" onclick="compare(event)">A</button>
@@ -28,21 +29,29 @@
         </div>
     </div>
     
+    <!-- Div for the scoreform with a class so that it can be hidden before the end of the quiz -->
     <div id="scoreForm" class="hide">
         <h2>All done!</h2>
+        <!-- endScore id is held in a span so the actual score can be inserted. -->
         <p>Your final score is <span id="endScore"></span>.</p>
+        <!-- User can enter initials in the text field. Initials are grabbed for use in the leaderboard. -->
         <label for="initials">Enter Initials:</label>
         <input type="text" id="initials">
-        <button onclick="submitscore()">Submit</button>
+        <button onclick="submitScore()">Submit</button>
     </div>
 
+    <!-- Leaderboard holds and displays high scores -->
     <div id="leaderboard" class="hide">
         <h3>Highscores:</h3>
+        <!-- List is established for each of the scores that will be appended to the list -->
         <ul id="scores"></ul>
+
+        <!-- Buttons for playing again or clearing the scoreboard -->
         <button id="restartBtn" onclick="restart()">Play Again</button>
-        <button id="clearBtn" onclick="clearscores()">Clear Highscores</button>
+        <button id="clearBtn" onclick="clearScores()">Clear Highscores</button>
     </div>
 
+    <!-- Sourcing the JS -->
     <script src="script.js"></script>
 </body>
 

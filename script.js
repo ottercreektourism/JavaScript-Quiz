@@ -9,11 +9,13 @@ var initials = document.getElementById("initials");
 var leaderboard = document.getElementById("leaderboard");
 var scores = document.getElementById("scores");
 
+// Retrieving answer choices from the HTML
 var answerA = document.getElementById("answerA");
 var answerB = document.getElementById("answerB");
 var answerC = document.getElementById("answerC");
 var answerD = document.getElementById("answerD");
 
+// Setting initial values for counters and empty score object.
 var runningQuestionIndex = 0;
 var timerCount = 60;
 var highscores = {};
@@ -32,28 +34,23 @@ var questions = [
 
 // Function to start quiz
 function start() {
-  // When quiz starts, the timer function starts as well
+  // When quiz starts, the timer function starts as well, set to decrease every second
   countdown = setInterval(timerFunction, 1000)
   
-  // The current question will be referred to as questionData.
+  // Hiding startBtn and showing quiz once the start button is clicked. calling questionDisplay() to see the first question.
   startBtn.classList.add("hide");
   quiz.classList.remove("hide");
   questionDisplay();
 }
 
+// timerFunction() starts the timer counting down and sets the timerCount to contain the text for the timer variable, and decreases it
 function timerFunction(){
     timerCount--;
     timer.innerText = timerCount;
     if (timerCount <= 0) endQuiz();
 }
 
-function endQuiz(){
-  clearInterval(countdown);
-  quiz.classList.add("hide");
-  endScore.innerText = timer.innerText;
-  scoreForm.classList.remove("hide");
-}
-
+// Shows the first question when the function is called.
 function questionDisplay(){
   var questionData = questions[runningQuestionIndex];
   question.innerText = questionData.question;
@@ -63,6 +60,7 @@ function questionDisplay(){
   answerD.innerText = questionData.d;
 }
 
+// If wrong answer, 10 seconds are subtracted. Then next question is shown until question array has been finished.
 function compare(event){
   if(event.target.innerText !== questions[runningQuestionIndex].correct) { 
     timerCount -= 10;
@@ -73,7 +71,16 @@ function compare(event){
   else endQuiz();
 }
 
-function showscores() {
+// When the quiz ends, the timer is cleared, quiz is hidden, score is set to equal the time left, scoreform is shown.
+function endQuiz(){
+  clearInterval(countdown);
+  quiz.classList.add("hide");
+  endScore.innerText = timer.innerText;
+  scoreForm.classList.remove("hide");
+}
+
+// Shows the scores by adding them to a list item containing the initials of the player. Appends the list item using the #scores id from HTML
+function showScores() {
   var i = 1;
   scores.innerHTML = "";
   for(var initials in highscores) {
@@ -83,23 +90,26 @@ function showscores() {
   }
 }
 
-function submitscore(){
+// Submits the score into the local storage, hides the form, shows the leaderboard with all scores
+function submitScore(){
   highscores[initials.value] = timerCount;
 
   console.log(highscores);
   localStorage.highscores = JSON.stringify(highscores);
 
-  showscores();
+  showScores();
   scoreForm.classList.add("hide");
   leaderboard.classList.remove("hide");
 }
 
-function clearscores() {
+// clears the scores when the Clear Highscores button is clicked.
+function clearScores() {
   highscores = {};
   localStorage.highscores = JSON.stringify(highscores);
   scores.innerHTML = "";
 }
 
+// Function is called when the restart button is clicked. it resets the question index and timer, hides the leaderboard and shows the start button again.
 function restart(){
   runningQuestionIndex = 0;
   timerCount = 60;
